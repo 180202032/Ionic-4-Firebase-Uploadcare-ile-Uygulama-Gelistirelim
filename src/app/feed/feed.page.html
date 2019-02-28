@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="posts">
+    <ion-card *ngFor="let post of posts">
+      <ion-img src="https://ucarecdn.com/{{post.postID}}/-/preview/{{post.efekt}}"></ion-img>
+    
+      <ion-card-content>
+        <p>{{post.aciklama}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

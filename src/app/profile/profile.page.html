@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <app-loading *ngIf="!posts"></app-loading>
+
+  <div id="profile-info" *ngIf="posts">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" class="user-img">
+          <ion-img src="https://ucarecdn.com/{{profilFoto}}/-/scale_crop/200x200/center/"></ion-img>
+        </ion-col>
+        <ion-col size="8">
+          <p>{{kullanici}}</p>
+          <ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Profili Düzenle</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="images" *ngIf="posts">
+    <div class="image" *ngFor="let post of posts"> 
+      
+    <img (click)="posttaGit(post.posts)" class="main-image" src="https://ucarecdn.com/{{post.posts}}/-/scale_crop/200x200/center/" />  
+    </div>
+  </div>
+
+</ion-content>

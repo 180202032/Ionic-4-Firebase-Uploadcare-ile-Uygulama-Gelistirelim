@@ -1,0 +1,18 @@
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 318px;
+
+}
+
+.image{
+   margin-left: 3px;
+   margin-right: 3px;
+}
+
+.main-image, .user-img{
+    width: 100px;
+    height: 100px;
+}

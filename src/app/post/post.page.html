@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <app-loading *ngIf="!post"></app-loading>
+
+  <ion-card *ngIf="post as postData">
+    <ion-img src="https://ucarecdn.com/{{postID}}/-/preview/{{efekt}}">
+
+    </ion-img>
+    <ion-card-content>
+      <p>{{postData.aciklama}}</p>
+      <ion-item (click)="toogleKalp()">
+        <ion-icon [name]="kalpDurum"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

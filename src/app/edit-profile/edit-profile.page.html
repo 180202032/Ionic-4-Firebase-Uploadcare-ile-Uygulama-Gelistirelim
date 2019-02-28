@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profili Düzenle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <app-loading *ngIf="busy"></app-loading>
+
+  <div *ngIf="!busy">
+      <input type="file" #filebtn class="filebtn" (change)="profilFotoGuncelle($event)"/>
+      <div>
+        <ion-img (click)="profilFotoSec()" src="https://ucarecdn.com/{{profilFoto}}/-/scale_crop/200x200/center/"></ion-img>
+      </div>
+      <div class="profile-info">
+        <ion-item>
+          <ion-label position="floating">Kullanıcı Adı</ion-label>
+          <ion-input [(ngModel)]="kullanici"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Parola</ion-label>
+            <ion-input [(ngModel)]="eskiParola"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Yeni Parola</ion-label>
+            <ion-input [(ngModel)]="yeniParola"></ion-input>
+        </ion-item>
+        <ion-button fill="solid" expand="block" color="dark" (click)="bilgileriGuncelle()">Kaydet</ion-button>
+      </div>
+  </div>
+</ion-content>

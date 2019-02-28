@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>uploader</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <app-loading *ngIf="busy"></app-loading>
+
+  <div class="center" *ngIf="!busy">
+
+    <div class="camera"></div><br/>
+    <input type="file" *ngIf="!imageURL" class="filebtn" #filebtn (change)="fileChanged($event)" />
+
+    <ion-button shape="round" color="primary" fill="outline" *ngIf="!imageURL" (click)="resimYukle()" >Resim Yükle</ion-button>
+
+    <div *ngIf="imageURL">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+              <ion-img *ngIf="imageURL" src="https://ucarecdn.com/{{imageURL}}/-/preview/{{aktifEfekt}}"></ion-img>
+              <ion-card-content>
+                <ion-textarea placeholder="Açıklama Giriniz" [(ngModel)]="aciklama"></ion-textarea>
+                <ion-button shape="round" color="primary" (click)="postOlustur()">POST</ion-button>
+              </ion-card-content>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col [class.aktif]="aktifEfekt==efektDizisi.efekt1" (click)="secileniAyarla('efekt1')">
+              <ion-img src="https://ucarecdn.com/{{imageURL}}/{{scaleCrop}}/"></ion-img>
+          </ion-col>
+          <ion-col [class.aktif]="aktifEfekt==efektDizisi.efekt2" (click)="secileniAyarla('efekt2')">
+              <ion-img src="https://ucarecdn.com/{{imageURL}}/{{scaleCrop}}/{{efektDizisi.efekt2}}"></ion-img>
+          </ion-col>
+          <ion-col [class.aktif]="aktifEfekt==efektDizisi.efekt3" (click)="secileniAyarla('efekt3')">
+              <ion-img src="https://ucarecdn.com/{{imageURL}}/{{scaleCrop}}/{{efektDizisi.efekt3}}"></ion-img>
+          </ion-col>
+          <ion-col [class.aktif]="aktifEfekt==efektDizisi.efekt4" (click)="secileniAyarla('efekt4')">
+              <ion-img src="https://ucarecdn.com/{{imageURL}}/{{scaleCrop}}/{{efektDizisi.efekt4}}"></ion-img>
+          </ion-col>
+          <ion-col [class.aktif]="aktifEfekt==efektDizisi.efekt5" (click)="secileniAyarla('efekt5')">
+              <ion-img src="https://ucarecdn.com/{{imageURL}}/{{scaleCrop}}/{{efektDizisi.efekt5}}"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="yuzYok">
+          <ion-col size="12">
+              <p class="no-face">Resimde yüz bulunmadı</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </div>
+  </div>
+   
+</ion-content>
